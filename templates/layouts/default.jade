@@ -27,11 +27,11 @@ html
                 each link in navLinks
                     li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
 
-                //- div.navbar-contacts
-                //-     div.navbar-contacts__phone
-                //-         span.navbar-contacts__code= '(' + company.phone.code + ') '
-                //-         span.navbar-contacts__number= company.phone.number
-                //-     div.navbar-contacts__work-time= company.workTime.days + ' ' + company.workTime.time
+            .navbar-contacts
+                .phone
+                    span.code= '(' + company.phone.code + ') '
+                    span.number= company.phone.number
+                .work-time= company.workTime.days + ' ' + company.workTime.time
 
         #body
 
