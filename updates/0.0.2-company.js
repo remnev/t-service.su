@@ -11,7 +11,7 @@ exports = module.exports = function(done) {
             code: 495,
             number: '120-56-40'
         },
-        worktime: {
+        workTime: {
             days: 'ежедневно',
             time: 'c 8:00 до 21:00'
         },
