@@ -6,6 +6,7 @@ body {
     width: 960px;
     height: 110px;
     margin: 0 auto;
+    padding-top: 30px;
     position: relative;
 
     .logo {
@@ -19,7 +20,7 @@ body {
         box-shadow: 0 0 4px 1px rgba(240, 189, 36, 0.6);
 
         img {
-            margin: 24px auto 10px;
+            margin: 14px 0 10px 34px;
             display: block;
         }
 
@@ -35,6 +36,39 @@ body {
             color: rgba(255, 255, 255, .6);
             text-decoration: none;
             outline-offset: -1px;
+        }
+    }
+
+    .nav-links {
+        margin-left: 270px;
+        line-height: 48px;
+
+        li {
+            display: inline-block;
+            list-style: none;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            letter-spacing: .05em;
+            margin-right: 40px;
+
+            &.active {
+                border-top: 2px solid #f0bd24;
+
+                a {
+                    color: #f0bd24 !important;
+                }
+            }
+
+            a {
+                color: #fff;
+
+                &:hover, &:focus, &:active {
+                    outline: none;
+                    text-decoration: none;
+                    color: #f0e7cc;
+                }
+            }
         }
     }
 }
