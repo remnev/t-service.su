@@ -1,10 +1,47 @@
+body {
+    background-color: #1a1a1a;
+}
+
 #header {
-	margin-top: 30px;
+    width: 960px;
+    height: 110px;
+    margin: 0 auto;
+    position: relative;
+
+    .logo {
+        width: 160px;
+        height: 140px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #0d0d0d;
+        text-align: center;
+        box-shadow: 0 0 4px 1px rgba(240, 189, 36, 0.6);
+
+        img {
+            margin: 24px auto 10px;
+            display: block;
+        }
+
+        .company-name {
+            font-size: 14px;
+            font-family: Verdana, Arial, sans-serif;
+            color: #fff;
+            letter-spacing: .2em;
+            word-spacing: -.3em;
+        }
+
+        &:hover, &:focus, &:active {
+            color: rgba(255, 255, 255, .6);
+            text-decoration: none;
+            outline-offset: -1px;
+        }
+    }
 }
 
 #footer {
-	margin-top: 30px;
-	border-top: 1px solid @gray-lighter;
-	padding-top: 30px;
-	color: @gray-light;
+    // margin-top: 30px;
+    // border-top: 1px solid @gray-lighter;
+    // padding-top: 30px;
+    // color: @gray-light;
 }
