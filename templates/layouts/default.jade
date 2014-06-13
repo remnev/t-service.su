@@ -34,7 +34,6 @@ html
                 .work-time= company.workTime.days + ' ' + company.workTime.time
 
         #body
-
             //- NOTE:
             //- There is no .container wrapping class around body blocks to allow more flexibility in design.
             //- Remember to include it in your templates when you override the intro and content blocks!
@@ -52,6 +51,27 @@ html
 
         //- FOOTER
         #footer:.container
+            table
+                tr
+                    td
+                        .title: a(href='/') Компания
+                    td
+                        .title: a(href='/services/') Услуги
+                        each category in categories
+                            a.category-title(href= '/services/'+category.slug+'/')= category.name
+                            ul
+                                each service in services
+                                    if service.categories[0].slug == category.slug
+                                        li: a(href= '/services/'+category.slug+'#'+service.slug+'/')= service.name
+
+                    td
+                        .title: a(href='/contact/') Контакты
+                        ul
+                            li= 'Телефон (' + company.phone.code + ') ' + company.phone.number
+                            li= 'Email ' + company.email
+                            li: a(href='/contact/') Форма обратной связи
+                            li= company.address
+
 
         //- JAVASCRIPT
 

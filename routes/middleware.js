@@ -10,7 +10,8 @@
 
 var _ = require('underscore'),
     querystring = require('querystring'),
-    keystone = require('keystone');
+    keystone = require('keystone'),
+    async = require('async');
 
 
 /**
@@ -22,8 +23,7 @@ var _ = require('underscore'),
 */
 
 exports.initLocals = function(req, res, next) {
-    var locals = res.locals,
-        Company = keystone.list('Company');
+    var locals = res.locals;
 
     locals.navLinks = [
         { label: 'Компания', key: 'company',  href: '/' },
@@ -33,14 +33,19 @@ exports.initLocals = function(req, res, next) {
 
     locals.user = req.user;
 
-    Company.model.findOne()
-        .where('slug', 'transservice')
-        .exec(function(err, company) {
-            if (err) throw err;
+    async.parallel({
+        company: getCompany,
+        categories: getCategories,
+        services: getServices
+    }, function(err, results) {
+        if (err) throw err;
 
-            locals.company = company;
-            next();
-        });
+        locals.company = results.company;
+        locals.categories = results.categories;
+        locals.services = results.services;
+
+        next();
+    });
 };
 
 
@@ -73,4 +78,42 @@ exports.requireUser = function(req, res, next) {
     } else {
         next();
     }
+}
+
+function getCompany(cb) {
+    keystone.list('Company').model
+        .findOne()
+        .where('slug', 'transservice')
+        .exec(function(err, company) {
+            if (err) throw err;
+
+            cb(null, company);
+        });
+}
+
+function getCategories(cb) {
+    keystone.list('ServiceCategory').model
+        .find()
+        .where({ showInFooter: true })
+        .select('name slug')
+        .sort({ priority: 1 })
+        .exec(function(err, categories) {
+            if (err) cb(err);
+
+            cb(null, categories);
+        });
+}
+
+function getServices(cb) {
+    keystone.list('Service').model
+        .find()
+        .where({ state: 'published', showInFooter: true })
+        .select('name categories slug')
+        .populate('serviceCategory categories')
+        .sort({ priority: 1 })
+        .exec(function(err, services) {
+            if (err) cb(err);
+
+            cb(null, services);
+        });
 }
