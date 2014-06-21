@@ -58,11 +58,12 @@ html
                     td
                         .title: a(href='/services/') Услуги
                         each category in categories
-                            a.category-title(href= '/services/'+category.slug+'/')= category.name
-                            ul
-                                each service in services
-                                    if service.categories[0].slug == category.slug
-                                        li: a(href= '/services/'+category.slug+'#'+service.slug+'/')= service.name
+                            if category.showInFooter
+                                a.category-title(href= '/services/'+category.slug+'/')= category.name
+                                ul
+                                    each service in services
+                                        if service.categories[0].slug == category.slug && service.showInFooter
+                                            li: a(href= '/services/'+category.slug+'/#'+service.slug)= service.name
 
                     td
                         .title: a(href='/contact/') Контакты
@@ -79,6 +80,8 @@ html
         //- and the KeystoneJS Content Editor. If you are not targeting IE8,
         //- you can upgrade to 2.1.0 (also bundled) for better performance.
         script(src='/js/lib/jquery/jquery-1.11.0.min.js')
+
+        script(src='/js/default.js')
 
         //- Customise which Bootstrap javascript files are served by including
         //- them specifically here, instead of bootstrap-3.1.0.min.js
