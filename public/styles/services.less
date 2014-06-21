@@ -1,0 +1,135 @@
+#body {
+    background: url('/images/services-background.png') no-repeat center 0;
+    min-height: 600px;
+
+    .container {
+        width: 960px !important;
+        padding: 0;
+
+        h1 {
+            color: #fff;
+            font-size: 30px;
+            line-height: 30px;
+            font-weight: bold;
+            letter-spacing: .1em;
+            font-family: Arial, sans-serif;
+            text-shadow: 0 1px 2px #000;
+            margin-top: 60px;
+            margin-bottom: 26px;
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 22px;
+            letter-spacing: .04em;
+            font-family: Arial, sans-serif;
+            text-shadow: 0 1px 2px #000;
+            margin-top: 0;
+            margin-bottom: 12px;
+            margin-left: 10px;
+        }
+    }
+
+    .layout__left {
+        width: 400px;
+        display: table-cell;
+        padding-right: 10px;
+    }
+
+    .layout__right {
+        display: table-cell;
+        vertical-align: top;
+        width: 560px;
+    }
+
+    .services-list {
+        padding-left: 0;
+        margin-left: 10px;
+        list-style: none;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: .04em;
+        text-shadow: 0 1px 2px #000;
+
+        a {
+            color: #fff;
+
+            &:hover, &:focus, &:active {
+                outline: none;
+                text-decoration: none;
+                color: #f2f2f2;
+            }
+        }
+    }
+
+    .affix-sticky.affix {
+        top: 26px;
+    }
+
+    .affix-bottom {
+        position: absolute !important;
+    }
+
+    .services {
+        margin-top: 116px;
+
+        .service {
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(241, 241, 241, .8);
+            margin-bottom: 4px;
+            box-shadow: 0 5px 5px 0 #000;
+            position: relative;
+        }
+
+        .title {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            line-height: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            letter-spacing: .04;
+            margin-top: 6px;
+        }
+
+        .img {
+            width: 540px;
+            height: 300px;
+        }
+
+        .img-shadow {
+            box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, .9);
+            position: absolute;
+            width: 540px;
+            height: 300px;
+            top: 38px;
+        }
+
+        .price {
+            position: absolute;
+            right: 0;
+            top: 312px;
+            padding: 6px 10px;
+            background-color: #f0bd24;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .75);
+            font-family: Verdana, sans-serif;
+            font-size: 18px;
+            line-height: 18px;
+            word-spacing: -.2em;
+
+            .unit {
+                font-size: 14px;
+                font-style: italic;
+                margin-left: .2em;
+            }
+        }
+    }
+}

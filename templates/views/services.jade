@@ -1,0 +1,32 @@
+extends ../layouts/default
+
+block content
+    .container
+        .layout__left
+            h1 Наши услуги
+            .affix-sticky
+                h2= serviceCategory.name
+                ul.services-list
+                    each service in services
+                        if service.categories[0].slug == serviceCategory.slug
+                            li.services-list__item
+                                a(href='#'+service.slug)= service.name
+        .layout__right
+            //- Список карточек
+            .services
+                each service in services
+                    if service.categories[0].slug == serviceCategory.slug
+                        .service(id=service.slug)
+                            .title= service.name
+                            img.img(src=service.image.url, alt=service.name)
+                            .img-shadow
+                            if service.price.value
+                                .price= service.price.value
+                                    span.unit= service.price.unit
+                            .description!= service.content
+
+block js
+    script(src='/js/services.js')
+
+block css
+    link(href="/styles/services.min.css", rel="stylesheet")

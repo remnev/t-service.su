@@ -42,6 +42,16 @@ Service.add({
         required: true,
         label: 'Категория'
     },
+    price: {
+        value: {
+            type: String,
+            label: 'Цена'
+        },
+        unit: {
+            type: String,
+            label: 'Единица измерения'
+        }
+    },
     showInFooter: {
         type: Types.Boolean,
         label: 'Вывести в подвал'

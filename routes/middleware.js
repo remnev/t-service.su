@@ -94,8 +94,7 @@ function getCompany(cb) {
 function getCategories(cb) {
     keystone.list('ServiceCategory').model
         .find()
-        .where({ showInFooter: true })
-        .select('name slug')
+        .select('name slug showInFooter')
         .sort({ priority: 1 })
         .exec(function(err, categories) {
             if (err) cb(err);
@@ -107,8 +106,8 @@ function getCategories(cb) {
 function getServices(cb) {
     keystone.list('Service').model
         .find()
-        .where({ state: 'published', showInFooter: true })
-        .select('name categories slug')
+        .where({ state: 'published' })
+        .select('name image content categories slug showInFooter price')
         .populate('serviceCategory categories')
         .sort({ priority: 1 })
         .exec(function(err, services) {
