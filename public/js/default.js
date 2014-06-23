@@ -10,9 +10,7 @@ $(function() {
     // the services item hover at top menu
     $('.nav-links li:has(a[href="/services/"])').hover(
         function() {
-            $categoriesPopup
-                .css('left', $(this).offset().left-24)
-                .show();
+            $categoriesPopup.show();
         }, 
         function() {
             popupTimeout = setTimeout(function() {
