@@ -42,9 +42,9 @@ Enquiry.schema.methods.sendNotificationEmail = function(callback) {
 			to: admins,
 			from: {
 				name: 't-service.su',
-				email: 'contact@t-servicesu.com'
+				email: 'contact@t-service.su'
 			},
-			subject: 'New Enquiry for t-service.su',
+			subject: 'Новое сообщение t-service.su',
 			enquiry: enqiury
 		}, callback);
 		
