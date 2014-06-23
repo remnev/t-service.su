@@ -1,34 +1,41 @@
 extends ../layouts/default
 
-block intro
-	.container
-		h1 Contact Us
-		
 block content
-	.container
-		if enquirySubmitted
-			h3 Thanks for getting in touch.
-		else
-			.row: .col-sm-8.col-md-6
-				form(method='post')
-					input(type='hidden', name='action', value='contact')
-					.form-group(class=validationErrors.name ? 'has-error' : null)
-						label Name
-						input(type='text', name='name.full', value=formData['name.full'], required).form-control
-					.form-group(class=validationErrors.email ? 'has-error' : null)
-						label Email
-						input(type='email', name='email', value=formData.email, required).form-control
-					.form-group
-						label Phone
-						input(type='text', name='phone', value=formData.phone, placeholder='(optional)').form-control
-					.form-group(class=validationErrors.enquiryType ? 'has-error' : null)
-						label What are you contacting us about?
-						select(name='enquiryType').form-control
-							option(value='') (select one)
-							each type in enquiryTypes
-								option(value=type.value, selected=formData.enquiryType == type.value)= type.label
-					.form-group(class=validationErrors.message ? 'has-error' : null)
-						label Message
-						textarea(name='message', placeholder='Leave us a message...' rows=4).form-control= formData.message
-					.form-actions
-						button(type='submit').btn.btn-primary Send
+    .container
+        h1 Наши контакты
+
+        .contacts
+            h3 Контакты
+            ul
+                li Наш телефон: 
+                    span.value 8 (495) 120-56-40
+                li Электронная почта: 
+                    span.value contact@t-service.su
+                li Адрес: 
+                    span.value 142430, Московская область, Ногинский район, с. Ямкино, Центральная усадьба
+
+            h3 Форма обратной связи
+            .note С помощью этой формы вы можете отправить нам сообщение, задать вопрос или попросить связаться с вами. В этом случае укажите ваши контактные данные.
+            .status
+            form.contact-form(method='post')
+                input(type='hidden', name='action', value='contact')
+                .form-group(class=validationErrors.name ? 'has-error' : null)
+                    label Ваше имя
+                    input(type='text', name='name.full', value=formData['name.full'], required).form-control
+                .form-group(class=validationErrors.email ? 'has-error' : null)
+                    label Электронная почта
+                    input(type='email', name='email', value=formData.email, required).form-control
+                .form-group
+                    label Телефон
+                    input(type='text', name='phone', value=formData.phone, required).form-control
+                .form-group(class=validationErrors.message ? 'has-error' : null)
+                    label Сообщение
+                    textarea(name='message', rows=4).form-control= formData.message
+                .form-actions
+                    button(type='submit').btn.btn-primary Отправить
+
+block css
+    link(href="/styles/contact.min.css", rel="stylesheet")
+
+block js
+    script(src='/js/contact.js')
