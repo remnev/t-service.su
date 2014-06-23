@@ -33,6 +33,10 @@ html
                     span.number= company.phone.number
                 .work-time= company.workTime.days + ' ' + company.workTime.time
 
+            ul.categories-popup
+                each category in categories
+                    li: a(href= '/services/'+category.slug+'/')= category.name
+
         #body
             //- NOTE:
             //- There is no .container wrapping class around body blocks to allow more flexibility in design.
