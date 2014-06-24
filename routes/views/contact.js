@@ -17,12 +17,7 @@ exports = module.exports = function(req, res) {
     locals.metaDescription = 'Компания Транссервис — контакты.';
 
     // On POST requests, add the Enquiry item to the database
-    view.on('post', { action: 'contact' }, function(next) {
-        // Если форма отправлена не из браузера — посылаем сразу
-        if (locals.formData.action != 'contac') {
-            return res.send(400);
-        }
-
+    view.on('post', { action: 'contac' }, function(next) {
         var application = new Enquiry.model(),
             updater = application.getUpdateHandler(req);
 
@@ -38,8 +33,6 @@ exports = module.exports = function(req, res) {
                 res.json({ success: true });
             }
         });
-
-        return res.send(200);
     });
 
     view.render('contact');
