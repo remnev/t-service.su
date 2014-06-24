@@ -12,6 +12,10 @@ exports = module.exports = function(req, res) {
     locals.validationErrors = {};
     locals.enquirySubmitted = false;
 
+    locals.title = 'Компания Транссервис — Контакты';
+
+    locals.metaDescription = 'Компания Транссервис — контакты.';
+
     // On POST requests, add the Enquiry item to the database
     view.on('post', { action: 'contact' }, function(next) {
         // Если форма отправлена не из браузера — посылаем сразу

@@ -23,6 +23,20 @@ exports = module.exports = function(req, res) {
         }
     });
 
+    locals.title = 'Компания Транссервис — Услуги — '+locals.serviceCategory.name;
+
+    locals.metaDescription = locals.serviceCategory.name+': ';
+
+    locals.services.forEach(function(service) {
+        if (service.categories[0].slug == locals.serviceCategory.slug) {
+            locals.metaDescription += service.name+', '
+        }
+    });
+
+    locals.metaDescription = locals.metaDescription.slice(0, -2);
+
+    locals.metaDescription += ' — цены, описание, скидки.';
+
     // Render the view
     view.render('services');
 }
