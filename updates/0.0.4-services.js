@@ -345,7 +345,7 @@ var keystone = require('keystone'),
         },
 
         {
-            name: 'Очистка дна от ила',
+            name: 'Очистка дна от ила, углубление водоема',
             slug: 'sludge_cleaning',
             priority: 300,
             showInFooter: true,
