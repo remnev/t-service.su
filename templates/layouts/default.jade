@@ -64,11 +64,12 @@ html
                         .title: a(href='/services/') Услуги
                         each category in categories
                             if category.showInFooter
-                                a.category-title(href= '/services/'+category.slug+'/')= category.name
-                                ul
-                                    each service in services
-                                        if service.categories[0].slug == category.slug && service.showInFooter
-                                            li: a(href= '/services/'+category.slug+'/#'+service.slug)= service.name
+                                .category
+                                    a.category-title(href= '/services/'+category.slug+'/')= category.name
+                                    ul
+                                        each service in services
+                                            if service.categories[0].slug == category.slug && service.showInFooter
+                                                li: a(href= '/services/'+category.slug+'/#'+service.slug)= service.name
 
                     td
                         .title: a(href='/contact/') Контакты
