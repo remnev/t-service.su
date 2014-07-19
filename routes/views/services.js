@@ -5,6 +5,8 @@ exports = module.exports = function(req, res) {
     var locals = res.locals,
         view = new keystone.View(req, res);
 
+    locals.servicesCount = 0; // count services in their category
+
     // Если пришли по /services/, то редирект на раздел по умолчанию
     if (!req.params.category) {
         getDefaultCategory(function(err, defaultCategory) {
@@ -29,7 +31,8 @@ exports = module.exports = function(req, res) {
 
     locals.services.forEach(function(service) {
         if (service.categories[0].slug == locals.serviceCategory.slug) {
-            locals.metaDescription += service.name+', '
+            locals.metaDescription += service.name+', ';
+            locals.servicesCount++;
         }
     });
 

@@ -7,10 +7,11 @@ block content
             .affix-sticky
                 h2= serviceCategory.name
                 ul.services-list
-                    each service in services
-                        if service.categories[0].slug == serviceCategory.slug
-                            li.services-list__item
-                                a(href='#'+service.slug)= service.name
+                    if servicesCount > 1
+                        each service in services
+                            if service.categories[0].slug == serviceCategory.slug
+                                li.services-list__item
+                                    a(href='#'+service.slug)= service.name
         .layout__right
             //- Список карточек
             .services
