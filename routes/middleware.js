@@ -95,7 +95,7 @@ function getCompany(cb) {
 function getCategories(cb) {
     keystone.list('ServiceCategory').model
         .find()
-        .select('name slug showInFooter')
+        .select('name slug showInFooter showInUnderheadMenu')
         .sort({ priority: 1 })
         .exec(function(err, categories) {
             if (err) cb(err);

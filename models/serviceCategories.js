@@ -22,6 +22,10 @@ ServiceCategory.add({
         type: Types.Boolean,
         label: 'Вывести в подвал'
     },
+    showInUnderheadMenu: {
+        type: Types.Boolean,
+        label: 'Вывести в меню под шапкой'
+    },
     showAsDefaultCategory: {
         type: Types.Boolean,
         label: 'По умолчанию (Хотя бы одна категория должна иметь эту галку)',
