@@ -33,6 +33,7 @@ exports.initLocals = function(req, res, next) {
 
     locals.user = req.user;
     locals.fullYear = new Date().getFullYear();
+    locals.env = keystone.get('env');
 
     async.parallel({
         company: getCompany,
