@@ -1,0 +1,4 @@
+.underhead-menu: .categories-list__wrapper: ul.categories-list
+    each category in categories
+        if category.showInUnderheadMenu
+            li(class= category.slug == serviceCategory.slug ? 'active' : ''): a(href= '/services/'+category.slug+'/')= category.name

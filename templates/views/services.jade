@@ -1,10 +1,7 @@
 extends ../layouts/default
 
 block content
-    .underhead-menu: .categories-list__wrapper: ul.categories-list
-        each category in categories
-            if category.showInUnderheadMenu
-                li(class= category.slug == serviceCategory.slug ? 'active' : ''): a(href= '/services/'+category.slug+'/')= category.name
+    include ../common/underhead-menu
     .container
         .layout__left
             h1 Наши услуги

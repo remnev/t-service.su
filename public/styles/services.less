@@ -2,6 +2,8 @@
     background: url('/images/services-background.png') no-repeat center 0;
     min-height: 600px;
 
+    @import 'common/underhead-menu.less';
+
     .container {
         width: 960px !important;
         padding: 0;
@@ -157,54 +159,6 @@
 
         p:last-child {
             margin-bottom: 0;
-        }
-    }
-
-    .underhead-menu {
-        height: 30px;
-        overflow: hidden;
-        background-color: #2e2e2e;
-        font-family: Arial, sans-serif;
-        font-size: 12px;
-        line-height: 30px;
-        letter-spacing: .02em;
-
-        .categories-list__wrapper {
-            margin: 0 auto;
-            width: 960px;
-        }
-
-        .categories-list {
-            margin-left: 160px;
-            margin-bottom: 0;
-            padding: 0;
-            list-style: none;
-
-            li {
-                display: inline-block;
-                margin-left: 20px;
-
-                &.active {
-                    a {
-                        color: #f0bd24;
-                        cursor: default;
-
-                        &:hover, &:focus, &:active {
-                            text-decoration: none;
-                            outline: none;
-                        }
-                    }
-                }
-            }
-
-            a {
-                color: #fff;
-
-                &:hover, &:focus, &:active {
-                    text-decoration: underline;
-                    outline: none;
-                }
-            }
         }
     }
 }
