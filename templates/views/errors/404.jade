@@ -1,6 +1,13 @@
 extends ../../layouts/default
 
 block content
-	.container
-		h1 404
-		p.lead Sorry, the page you requested can't be found.
+    .container
+        h1 Страница не найдена (404)
+        p К сожалению, запрашиваемая страница не найдена.
+        p
+            | Если вы считаете, что страница должна быть именно здесь,
+            | дайте нам знать об этом через 
+            a(href='/contact/') форму обратной связи.
+
+block css
+    link(href="/styles/error.min.css", rel="stylesheet")
