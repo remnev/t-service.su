@@ -1,0 +1,16 @@
+extends ../layouts/default
+
+block content
+    include ../common/underhead-menu
+    .container
+        h1= article.title
+
+        .article!= article.content
+
+block css
+    link(href="/styles/article.min.css", rel="stylesheet")
+
+    //- include service specific background image
+    case serviceCategory.slug
+        when 'ponds-works'
+            link(href="/styles/backgrounds/ponds-works.min.css", rel="stylesheet")

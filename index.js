@@ -27,7 +27,10 @@ keystone.init({
     'session': true,
     'auth': true,
     'user model': 'User',
-    'cookie secret': '$9UOe(l0d[b^*DWQGb$1uGO4p!P(#+q$|t-vy!qqu!yd$lor[N&BD@="#)*"GTQ?'
+    'cookie secret': '$9UOe(l0d[b^*DWQGb$1uGO4p!P(#+q$|t-vy!qqu!yd$lor[N&BD@="#)*"GTQ?',
+
+    'wysiwyg menubar': true,
+    'wysiwyg cloudinary images': true
 });
 
 // Load your project's Models
@@ -91,6 +94,7 @@ keystone.set('nav', {
     // 'posts': ['posts', 'post-categories'],
     'Компания': 'companies',
     'Услуги': ['services', 'service-categories'],
+    'Статьи': ['Article', 'ArticleTag'],
     'Сообщения': 'enquiries',
     'Пользователи': 'users'
 });
