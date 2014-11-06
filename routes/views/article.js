@@ -31,6 +31,12 @@ exports = module.exports = function(req, res) {
 
                 locals.article = result;
 
+                locals.title = result.title + ' — '
+                             + locals.serviceCategory.name + ' — '
+                             + 'Компания Транссервис';
+
+                locals.metaDescription = result.metaDescription;
+
                 next(err);
             });
     });

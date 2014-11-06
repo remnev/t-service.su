@@ -20,6 +20,9 @@ Article.add({
         type: String,
         index: true
     },
+    metaDescription: {
+        type: String
+    },
     state: {
         type: Types.Select,
         options: 'draft, published, archived',
