@@ -1,4 +1,5 @@
 var keystone = require('keystone'),
+    sitemapGen = require('../lib/sitemap-gen'),
     Types = keystone.Field.Types;
 
 var Article = new keystone.List('Article', {
@@ -45,10 +46,26 @@ Article.add({
         type: Types.Relationship,
         ref: 'ArticleTag',
         many: true
+    },
+    lastEditDate: {
+        type: Types.Date,
+        index: true,
+        hidden: true
     }
 });
 
-
 Article.defaultColumns = 'title, state|20%, publishedDate|20%';
+
+Article.schema.pre('save', function(next) {
+    if (this.isModified()) {
+       this.lastEditDate = new Date();
+    }
+
+    next();
+});
+
+Article.schema.post('save', function() {
+    sitemapGen();
+});
 
 Article.register();

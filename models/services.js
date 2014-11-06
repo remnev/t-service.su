@@ -1,4 +1,5 @@
 var keystone = require('keystone'),
+    sitemapGen = require('../lib/sitemap-gen'),
     Types = keystone.Field.Types;
 
 var Service = new keystone.List('Service');
@@ -64,7 +65,24 @@ Service.add({
     priority: {
         type: Number,
         label: 'Приоритет для сортировки'
+    },
+    lastEditDate: {
+        type: Types.Date,
+        index: true,
+        hidden: true
     }
+});
+
+Service.schema.pre('save', function(next) {
+    if (this.isModified()) {
+       this.lastEditDate = new Date();
+    }
+
+    next();
+});
+
+Service.schema.post('save', function() {
+    sitemapGen();
 });
 
 Service.register();
