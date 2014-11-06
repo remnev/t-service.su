@@ -6,7 +6,10 @@
     "keystone": "~0.2.6",
     "async": "~0.2.9",
     "underscore": "~1.5.2",
-    "dotenv": "0.0.3"
+    "dotenv": "0.0.3",
+    "xmlbuilder": "~2.4.4",
+    "fs-extra": "~0.12.0",
+    "dateformat": "~1.0.8"
   },
   "engines": {
     "node": ">=0.10.22",
