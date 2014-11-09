@@ -19,7 +19,7 @@ block content
                 each service in services
                     if service.categories[0].slug == serviceCategory.slug
                         .service(id=service.slug)
-                            .title= service.name
+                            h3.title= service.name
                             img.img(src=service.image.url, alt=service.name)
                             .img-shadow
                             if service.price.value
