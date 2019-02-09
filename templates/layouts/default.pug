@@ -52,31 +52,32 @@ html
 
 
         //- FOOTER
-        #footer:.container
-            table
-                tr
-                    td
-                        .title: a(href='/') Компания
-                    td
-                        .title: a(href='/services/') Услуги
-                        each category in categories
-                            if category.showInFooter
-                                .category
-                                    a.category-title(href= '/services/'+category.slug+'/')= category.name
-                                    ul
-                                        each service in services
-                                            if service.categories[0].slug == category.slug && service.showInFooter
-                                                li: a(href= '/services/'+category.slug+'/#'+service.slug)= service.name
+        #footer
+            .container
+                table
+                    tr
+                        td
+                            .title: a(href='/') Компания
+                        td
+                            .title: a(href='/services/') Услуги
+                            each category in categories
+                                if category.showInFooter
+                                    .category
+                                        a.category-title(href= '/services/'+category.slug+'/')= category.name
+                                        ul
+                                            each service in services
+                                                if service.categories[0].slug == category.slug && service.showInFooter
+                                                    li: a(href= '/services/'+category.slug+'/#'+service.slug)= service.name
 
-                    td
-                        .title: a(href='/contact/') Контакты
-                        ul
-                            li= 'Телефон (' + company.phone.code + ') ' + company.phone.number
-                            li= 'Email ' + company.email
-                            li: a(href='/contact/') Форма обратной связи
-                            li= company.address
+                        td
+                            .title: a(href='/contact/') Контакты
+                            ul
+                                li= 'Телефон (' + company.phone.code + ') ' + company.phone.number
+                                li= 'Email ' + company.email
+                                li: a(href='/contact/') Форма обратной связи
+                                li= company.address
 
-            .copyright= 'ООО Транссервис © ' + fullYear
+                .copyright= 'ООО Транссервис © ' + fullYear
 
 
         //- JAVASCRIPT

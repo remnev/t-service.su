@@ -1,0 +1,21 @@
+extends ../layouts/default
+
+block content
+    .container
+        h1 Наши контакты
+
+        .contacts
+            h3 Контакты
+            ul
+                li Наш телефон:
+                    span.value= '8 (' +company.phone.code+ ') ' + company.phone.number
+                li Электронная почта:
+                    span.value contact@t-service.su
+                li Адрес:
+                    span.value 142430, Московская область, Ногинский район, с. Ямкино, Центральная усадьба
+
+block css
+    link(href="/styles/contact.min.css", rel="stylesheet")
+
+block js
+    script(src='/js/contact.js')
